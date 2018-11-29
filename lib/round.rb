@@ -1,9 +1,10 @@
+
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
 
 class Round
-  attr_reader :turns #, :current_card
+  attr_reader :turns, :deck
   def initialize(deck)
     @turns = []
     @deck = deck
@@ -52,7 +53,7 @@ class Round
       end
     end
     percent = (correct / out_of) * 100.0
-    return percent.round(2)
+    return percent.round(1)
   end
 
   def percent_in_category_correct(category)
@@ -71,7 +72,7 @@ class Round
        end
      end
      percent = (correct / out_of) * 100.0
-     return percent.round(2)
+     return percent.round(1)
    end
 
 end
