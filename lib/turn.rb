@@ -7,9 +7,11 @@ class Turn
     @guess = guess
     @card= card
   end
+
   def correct?
     card.answer == guess
   end
+
   def feedback
     if card.answer == guess
       return "Correct!"
