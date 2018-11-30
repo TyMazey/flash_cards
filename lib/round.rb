@@ -75,6 +75,34 @@ class Round
      return percent.round(1)
    end
 
+   def start
+     card_counter = 1
+     cards_in_game = deck.count
+     puts "Welcome! You're playing with #{deck.count} cards."
+     puts "-" * 40
+     while deck.count > 0
+       puts "Question #{card_counter} of #{cards_in_game}:\n #{current_card.question}\n\n"
+       answer = gets.chomp.capitalize
+       take_turn(answer).feedback
+       puts "-" * 40
+       card_counter += 1
+     end
+     puts " " * 15 + "GAME OVER"
+     puts "-" * 40
+     puts "You had #{number_correct} correct guesses out of #{cards_in_game}!"
+     puts "For a TOTAL SCORE of #{percent_correct}%."
+
+
+    unique_catag = []
+    @turns.each do |turn|
+      if unique_catag.include?(turn.card.category)
+        #do nothing
+      else
+        puts "#{turn.card.category} - #{percent_in_category_correct(turn.card.category)}% correct."
+        unique_catag << turn.card.category
+      end
+    end
+   end
 end
 
 # card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
