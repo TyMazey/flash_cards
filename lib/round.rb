@@ -82,7 +82,7 @@ class Round
      puts "-" * 40
      while deck.count > 0
        puts "Question #{card_counter} of #{cards_in_game}:\n #{current_card.question}\n\n"
-       answer = gets.chomp.capitalize
+       answer = gets.chomp.upcase
        take_turn(answer).feedback
        puts "-" * 40
        card_counter += 1
