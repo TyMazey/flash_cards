@@ -14,5 +14,4 @@ class GeneratorTest < Minitest::Test
     filename = "cards.txt"
     cards = CardGenerator.new(filename)
   end
-
 end
